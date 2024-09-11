@@ -1,0 +1,23 @@
+<ul class="article-list">
+  <% for(let i = 0; i < articles.length; i += 1) { %>
+    <li class="article-item" data-idx="<%= articles[i].idx %>">
+      <a href="/<%= category %>/<%= articles[i].idx %>">
+        <div class="article-image">
+          <img src="<%= articles[i].imageUrl %>" alt="Article Image">
+        </div>
+        <div class="article-title"><%= articles[i].title %></div>
+        <div class="article-summary"><%= articles[i].summaryContent %></div>
+        <div class="article-media">
+          <a href="<%= articles[i].url %>"><%= articles[i].mediaName %></a>
+          <div class="article-fav">
+            <% if (articles[i].isFav) { %>
+              <img src="/img/star-full.svg" alt="Favourite">
+            <% } else { %>
+              <img src="/img/star-empty.svg" alt="Not favourite">
+            <% } %>
+          </div>
+        </div>
+      </a>
+    </li>
+  <% } %>
+</ul>

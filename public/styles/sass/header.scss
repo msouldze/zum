@@ -1,0 +1,28 @@
+header {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.header-category {
+  a {
+    display: inline-flex;
+    padding: 7px 16px;
+    border: solid 1px #d4d2d2;
+    border-radius: 20px;
+    font-size: 17px;
+    font-weight: 700;
+
+    &:hover {
+      border: solid 1px black;
+    }
+
+    & + a {
+      margin-left: 2px;
+    }
+
+    &:first-child img {
+      width: 17px;
+      margin-left: 2px;
+    }
+  }
+}

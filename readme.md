@@ -1,0 +1,1 @@
+"scripts": { "build": "webpack --mode production", "predeploy": "npm run build", "deploy": "gh-pages -d dist", "dev": "webpack --mode development", "start": "webpack-dev-server --mode development --open", "watch": "webpack --mode development --watch" },

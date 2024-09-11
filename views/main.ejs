@@ -1,0 +1,41 @@
+<ul class="article-list">
+  <% for(let i = 0; i < articles.length; i += 1) { %>
+    <li class="article-item" data-idx="<%= articles[i].idx %>">
+      <% const path = Math.floor(categories[i/articles.length * categories.length]) %>
+      <a href="/<%= path %>/<%= articles[i].idx %>">
+        <div class="article-image">
+          <img src="<%= articles[i].imageUrl %>" alt="Article Image">
+        </div>
+        <div class="article-title"><%= articles[i].title %></div>
+        <div class="article-summary"><%= articles[i].summaryContent %></div>
+        <div class="article-media">
+          <a href="<%= articles[i].url %>"><%= articles[i].mediaName %></a>
+          <div class="article-fav">
+            <% if (articles[i].isFav) { %>
+              <img src="/img/star-full.svg" alt="Favourite">
+            <% } else { %>
+              <img src="/img/star-empty.svg" alt="Not favourite">
+            <% } %>
+          </div>
+        </div>
+      </a>
+    </li>
+  <% } %>
+</ul>
+<div class="top-container">
+  <h1>오늘의 실시간</h1>
+  <ul class="top-list">
+    <% for(let index = 0; index < bestArticles.length; index += 1) { %>
+      <li class="top-item" data-idx="<%= bestArticles[index].idx %>">
+        <a href="<%- bestArticles[index].url %>">
+          <div class="top-number"><%= index + 1 %></div>
+          <div class="top-body">
+            <div class="top-title"><%= bestArticles[index].title %></div>
+            <a class="top-media" href="<%= bestArticles[index].url %>"><%= bestArticles[index].mediaName %></a>
+          </div>
+        </a>
+      </li>
+    <% } %>
+  </ul>
+</div>
+<div class="loader"></div>

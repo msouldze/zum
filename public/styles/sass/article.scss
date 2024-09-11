@@ -1,0 +1,53 @@
+.article {
+  margin: 0 auto;
+  padding: 50px 0 0;
+  width: 70%;
+
+  h2 {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .article-mediaName {
+    font-style: italic;
+    margin-top: 30px;
+  }
+
+  .article-summary {
+    margin-top: 40px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .article-media {
+    margin: 40px 0;
+    font-weight: 500;
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .navigation {
+    a {
+      display: inline-block;
+      padding: 0 10px;
+      border-right: solid 1px;
+      font-weight: 500;
+    }
+  }
+
+  .article-fav {
+    width: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
