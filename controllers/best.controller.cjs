@@ -4,6 +4,7 @@ const article = new Article();
 
 const getHome = async (req, res) => {
   let bestArticles, data;
+
   try {
     bestArticles = await article.fetchData('best');
     data = await article.fetchAllArticles();
@@ -12,9 +13,9 @@ const getHome = async (req, res) => {
   }
 
   const { categories, allData: articles } = data;
-  
+
   const responseData = {
-    title: 'ZUM',
+    pageTitle: 'ZUM',
     categories: categories,
     articles: articles,
     bestArticles : bestArticles

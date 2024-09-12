@@ -9,18 +9,16 @@ const handleFav = async (event) => {
   const article = target.closest('.article-item') || target.closest('.article');
   const articleImage = target.closest('.article-fav').querySelector('img');
   
-  const pathName = location.pathname.slice(1);
   toggle = !toggle;
 
   articleImage.src = toggle ? '/img/star-full.svg' : '/img/star-empty.svg';
 
   try {
-    const response = await fetch(`/content/${pathName}`, {
+    const response = await fetch(`/content/category`, {
       method: 'PATCH',
       body: JSON.stringify({
         idx: article.dataset.idx,
-        isFav: toggle,
-        pathName: pathName
+        isFav: toggle
       }),
       headers: {
         'Content-Type': 'application/json'

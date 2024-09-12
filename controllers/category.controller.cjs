@@ -26,15 +26,16 @@ const getCategory = async (req, res) => {
 const getArticle = async (req, res) => {
   const category = req.params.category;
   const idx = req.params.idx;
+
   let data;
+  
   try {
     data = await article.fetchArticle(idx);
   } catch (error) {
     return new Error(error);
   }
-  
-  const articleData = data.article;
-  return res.render('article', { title: articleData.title, article: articleData, category });
+
+  return res.render('article', { article: data.article, category: data.category });
 }
 
 module.exports = {

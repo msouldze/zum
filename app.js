@@ -17,8 +17,8 @@ app.use(articleRoutes);
 app.use(baseRoutes);
 app.use(categoryRoutes);
 
-app.use((error, req, res, next) => {
-  res.status(500).render('500');
-});
+// app.use((error, req, res, next) => {
+//   res.status(500).render('500');
+// });
 
 app.listen(3000);

@@ -1,4 +1,4 @@
-const { readFile, updateFile } = require('../management/article.api.cjs');
+const { readFile, updateFile } = require('../management/article.management.cjs');
 const Article = require('../models/Article.cjs');
 
 const getArticles = (req, res) => {
@@ -22,21 +22,21 @@ const getContentDetails = (req, res) => {
 }
 
 const updateContent = async (req, res) => {
-  const { idx: articleIdx, isFav, pathName } = req.body;
+  const { idx: articleIdx, isFav } = req.body;
   const article = new Article();
   
-  let updatedFavList, articleData, list;
+  let updatedFavList, data, list;
   const favList = readFile('favs');
 
   try {
-    articleData = await article.fetchArticle(articleIdx);
-    list = await article.fetchData(pathName);
+    data = await article.fetchArticle(articleIdx);
+    list = await article.fetchData(data.category);
   } catch(error) {
     return new Error(error);
   }
   
   const updatedArticle = {
-    ...articleData,
+    ...data.article,
     isFav: isFav
   }
 
@@ -49,9 +49,9 @@ const updateContent = async (req, res) => {
   } else {
     updatedFavList = favList.filter(item => item.idx !== parseInt(articleIdx));
   }
-  
+
   updateFile('favs', updatedFavList);
-  updateFile(pathName, updatedList);
+  updateFile(data.category, updatedList);
 
   res.json({
     message: 'List updated!',

@@ -44,12 +44,12 @@ class Article {
   async fetchArticle(idx) {
     try {
       const result = await Promise.all(this.categories.map(async (category) => {
-        const data = await this.fetchData(category);
-        const articleList = data.filter(item => item.idx === parseInt(idx));
-        const [article] = articleList;
-        if(articleList.length > 0) return article;
+      const data = await this.fetchData(category);
+      const articleList = data.filter(item => item.idx === parseInt(idx));
+      const [article] = articleList;
+      if(articleList.length > 0) return { category, article };
       }))
-  
+
       return result.find(element => element);
     } catch (error) {
       return new Error(error);

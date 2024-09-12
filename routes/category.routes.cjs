@@ -8,9 +8,3 @@ router.get('/:category', categoryController.getCategory);
 router.get('/:category/:idx', categoryController.getArticle);
 
 module.exports = router;
-
-// GET /best
-
-// GET /content/:category
-// GET /content/:category/:idx
-// GET /detail/:url

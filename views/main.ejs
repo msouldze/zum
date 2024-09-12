@@ -1,7 +1,7 @@
 <ul class="article-list">
   <% for(let i = 0; i < articles.length; i += 1) { %>
     <li class="article-item" data-idx="<%= articles[i].idx %>">
-      <% const path = Math.floor(categories[i/articles.length * categories.length]) %>
+      <% const path = categories[Math.floor(i / articles.length * categories.length)] %>
       <a href="/<%= path %>/<%= articles[i].idx %>">
         <div class="article-image">
           <img src="<%= articles[i].imageUrl %>" alt="Article Image">
