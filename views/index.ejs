@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"type="text/css" href="<%= require('./styles/style.css') %>">
-  <link rel="icon" type="image/x-icon" href="<%= require('./img/favicon.ico') %>">
+  <link rel="stylesheet"type="text/css" href="<%- webpackAssetPath('styles/style.css') %>">
+  <link rel="icon" type="image/x-icon" href="<%- webpackAssetPath('img/favicon.ico') %>">
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <%- require('./header.ejs') %>
+  <%- include('./header.ejs') %>
   <main id="app">
     <section class="container">
       <%- include('main', { categories, articles, bestArticles }) %>
     </section>
   </main>
-  <script type="module" src="<%= require('./js/index.js') %>" defer></script>
+  <script type="module" src="<%- webpackAssetPath('js/index.js') %>" defer></script>
 </body>
 </html>

@@ -9,7 +9,8 @@
     "scssDev": "npm-run-all --parallel start scss",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "watch": "webpack --mode development --watch"
   },
   "author": "",
   "license": "ISC",

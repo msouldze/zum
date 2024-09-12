@@ -93,9 +93,9 @@ module.exports = {
       title: 'ZUM',
       filename: 'index.html',
       template: './views/index.ejs',
-      // templateParameters: {
-      //    // Pass a default title value
-      // },
+      templateParameters: {
+        webpackAssetPath: (asset) => `/public/${asset}`, // Adjust this according to your asset output path
+      },
       minify: {
         removeComments: true,
         collapseWhitespace: false
