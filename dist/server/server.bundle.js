@@ -497,21 +497,16 @@ module.exports = /*#__PURE__*/JSON.parse('[{"idx":75553,"title":"현지인이 �
 /*!****************!*\
   !*** ./app.js ***!
   \****************/
-const path = __webpack_require__(/*! path */ "path");
-const express = __webpack_require__(/*! express */ "express");
-
-const baseRoutes = __webpack_require__(/*! ./routes/base.routes.cjs */ "./routes/base.routes.cjs");
-const articleRoutes = __webpack_require__(/*! ./routes/article.routes.cjs */ "./routes/article.routes.cjs");
-const categoryRoutes = __webpack_require__(/*! ./routes/category.routes.cjs */ "./routes/category.routes.cjs");
-
-const app = express();
-
+var path = __webpack_require__(/*! path */ "path");
+var express = __webpack_require__(/*! express */ "express");
+var baseRoutes = __webpack_require__(/*! ./routes/base.routes.cjs */ "./routes/base.routes.cjs");
+var articleRoutes = __webpack_require__(/*! ./routes/article.routes.cjs */ "./routes/article.routes.cjs");
+var categoryRoutes = __webpack_require__(/*! ./routes/category.routes.cjs */ "./routes/category.routes.cjs");
+var app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express["static"](path.join(__dirname, 'public')));
 app.use(articleRoutes);
 app.use(baseRoutes);
 app.use(categoryRoutes);
@@ -523,4 +518,4 @@ app.use(categoryRoutes);
 app.listen(3000);
 /******/ })()
 ;
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=server.bundle.js.map
