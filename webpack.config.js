@@ -63,7 +63,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'name].[hash].[ext]',
+              name: '[name].[hash].[ext]',
               outputPath: 'public/fonts',
               publicPath: '/fonts',
             }
@@ -78,7 +78,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'name].[hash].[ext]',
+              name: '[name].[hash].[ext]',
               outputPath: 'public/img',
               publicPath: '/img',
             }
@@ -91,7 +91,7 @@ module.exports = {
     // Подключаем файл html, стили и скрипты встроятся автоматически
     new HtmlWebpackPlugin({
       title: 'ZUM',
-      filename: 'index.html',
+      filename: '../index.html',
       template: './views/index.ejs',
       templateParameters: {
         webpackAssetPath: (asset) => `/public/${asset}`, // Adjust this according to your asset output path
