@@ -38,7 +38,7 @@ module.exports = {
       {
         test: /\.ejs$/i,
         exclude: /node_modules/,
-        loader: 'html-loader'
+        use: ['template-ejs-loader']
       },
 
       // Компилируем SCSS в CSS
@@ -92,10 +92,24 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'ZUM',
       filename: '../index.html',
-      template: './views/index.ejs',
-      templateParameters: {
-        webpackAssetPath: (asset) => `/public/${asset}`, // Adjust this according to your asset output path
-      },
+      template: '!!template-ejs-loader!./views/index.ejs',
+      // templateParameters: {
+      //   webpackAssetPath: (asset) => `/public/${asset}`, // Adjust this according to your asset output path
+      // },
+      // navItems: [
+      //   {
+      //     href: './',
+      //     title: 'ZUM'
+      //   },
+      //   {
+      //     href: './:category',
+      //     title: 'Category'
+      //   },
+      //   {
+      //     href: './about.html',
+      //     title: '&uuml;ber uns'
+      //   }
+      // ],
       minify: {
         removeComments: true,
         collapseWhitespace: false
